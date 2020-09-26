@@ -1,0 +1,113 @@
+.slider {
+  background-color: rgb(19, 20, 23);
+  position: relative;
+  &__wrapper {
+    overflow: hidden;
+  }
+  &__content {
+    white-space: nowrap;
+    transition: transform 1s ease;
+  }
+  &__item {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    &--active {
+      opacity: 1;
+      animation: animateCurrentItem 1.5s ease 1s 2 alternate;
+    }
+  }
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    &-btn {
+      background: none;
+      color: #fff;
+      width: 25px;
+      height: 25px;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: solid 1px red;
+      margin: 0 0.5rem 1rem 0.5rem;
+      outline: 0;
+      transition: background-color 0.2s ease;
+      &:hover {
+        background-color: red;
+      }
+      cursor: pointer;
+      &--active {
+        background-color: red;
+        animation: scale 0.5s 0s 1 cubic-bezier(0.075, 0.82, 0.165, 1) alternate
+          forwards;
+      }
+    }
+  }
+  &__mov-btn {
+    position: absolute;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 30px;
+    text-align: center;
+    padding: 0;
+    transition: transform 0.3s;
+    &:active {
+      transform: scale(1.05);
+    }
+    &--disable {
+      pointer-events: none;
+      background-color: red;
+      animation: shadow 0.5s 0s 1 cubic-bezier(0.075, 0.82, 0.165, 1) alternate;
+    }
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &__mov-next {
+    right: 1rem;
+  }
+  &__mov-prev {
+    left: 1rem;
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0);
+    box-shadow: 0 0 10px 10px yellow;
+  }
+  to {
+    transform: scale(1);
+    box-shadow: 0 0 20px 2px red;
+  }
+}
+
+@keyframes animateCurrentItem {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shadow {
+  from {
+    box-shadow: 0 0 10px 20px yellow;
+  }
+  to {
+    box-shadow: 0 0 20px 2px red;
+  }
+}

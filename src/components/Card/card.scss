@@ -1,0 +1,29 @@
+.card {
+  height: 300px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  white-space: initial;
+  @media (min-width: 768px) {
+    height: 450px;
+  }
+  &__image {
+    width: 100%;
+    max-width: 100px;
+    @media (min-width: 1024px) {
+      max-width: 200px;
+    }
+    margin-bottom: 1.5rem;
+  }
+  &__title {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+  &__description {
+    color: #fff;
+    margin: 0;
+  }
+}
